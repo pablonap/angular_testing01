@@ -11,6 +11,7 @@ import { setupCourses } from "../common/setup-test-data";
 describe("CoursesCardListComponent", () => {
   let component: CoursesCardListComponent;
   let fixture: ComponentFixture<CoursesCardListComponent>;
+  let el: DebugElement;
 
   beforeEach(
     waitForAsync(() => {
@@ -21,6 +22,7 @@ describe("CoursesCardListComponent", () => {
         .then(() => {
           fixture = TestBed.createComponent(CoursesCardListComponent);
           component = fixture.componentInstance;
+          el = fixture.debugElement;
         });
     })
   );
