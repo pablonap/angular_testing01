@@ -33,7 +33,16 @@ describe("CoursesCardListComponent", () => {
   });
 
   it("should display the course list", () => {
-    pending();
+    component.courses = setupCourses();
+
+    fixture.detectChanges();
+
+    console.log(">>> " + el.nativeElement.outerHTML);
+
+    const cards = el.queryAll(By.css(".course-card"));
+
+    expect(cards).toBeTruthy("Could not find cards");
+    expect(cards.length).toBe(12, "Unexpected number of courses");
   });
 
   it("should display the first course", () => {
