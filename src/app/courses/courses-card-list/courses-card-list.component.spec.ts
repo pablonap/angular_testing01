@@ -24,7 +24,7 @@ describe("CoursesCardListComponent", () => {
   });
 
   it("should create the component", () => {
-    pending();
+    expect(component).toBeTruthy();
   });
 
   it("should display the course list", () => {
