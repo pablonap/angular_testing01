@@ -22,6 +22,10 @@ describe("CoursesService", () => {
     );
   });
 
+  afterEach(() => {
+    httpTestingController.verify();
+  });
+
   it("should retrieve all courses", () => {
     coursesService.findAllCourses().subscribe((courses) => {
       expect(courses).toBeTruthy("No courses returned");
@@ -36,5 +40,17 @@ describe("CoursesService", () => {
     expect(req.request.method).toEqual("GET");
 
     req.flush({ payload: Object.values(COURSES) });
+  });
+
+  it("should find a course by id", () => {
+    coursesService.findCourseById(12).subscribe((course) => {
+      expect(course).toBeTruthy();
+      expect(course.id).toBe(12);
+    });
+
+    const req = httpTestingController.expectOne("/api/courses/12");
+    expect(req.request.method).toEqual("GET");
+
+    req.flush(COURSES[12]);
   });
 });
