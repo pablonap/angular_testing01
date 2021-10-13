@@ -31,8 +31,12 @@ describe("HomeComponent", () => {
 
   beforeEach(
     waitForAsync(() => {
+      const coursesServiceSpy = jasmine.createSpyObj("CoursesService", [
+        "findAllCourses",
+      ]);
       TestBed.configureTestingModule({
         imports: [CoursesModule, NoopAnimationsModule],
+        providers: [{ provide: CoursesService, useValue: coursesServiceSpy }],
       })
         .compileComponents()
         .then(() => {
