@@ -96,9 +96,14 @@ describe("HomeComponent", () => {
 
     fixture.detectChanges();
 
-    expect(cardTitles.length).toBeGreaterThan(0, "Could not find card titles");
-    expect(cardTitles[0].nativeElement.textContent).toContain(
-      "Angular Security Course"
-    );
+    setTimeout(() => {
+      expect(cardTitles.length).toBeGreaterThan(
+        0,
+        "Could not find card titles"
+      );
+      expect(cardTitles[0].nativeElement.textContent).toContain(
+        "Angular Security Course"
+      );
+    }, 500);
   });
 });
