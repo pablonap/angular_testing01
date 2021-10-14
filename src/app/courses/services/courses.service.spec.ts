@@ -76,13 +76,13 @@ describe("CoursesService", () => {
     });
 
     // the code below is just to show how spread operator works to replace content
-    console.log(">>> COURSES[12]: " + JSON.stringify(COURSES[12]));
+    // console.log(">>> COURSES[12]: " + JSON.stringify(COURSES[12]));
     // LOG: '>>> COURSES[12]: {"id":12,"titles":{"description":"Angular Testing Course","longDescription":"In-depth guide to Unit Testing and E2E Testing of Angular Applications"},"iconUrl":...
     let newObject = {
       ...COURSES[12],
       ...{ titles: { description: "it has been modified" } },
     };
-    console.log(">>> Modified: " + JSON.stringify(newObject));
+    // console.log(">>> Modified: " + JSON.stringify(newObject));
     // LOG: '>>> Modified: {"id":12,"titles":{"description":"it has been modified"},"iconUrl":...
   });
 

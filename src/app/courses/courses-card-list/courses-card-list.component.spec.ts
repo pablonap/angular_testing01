@@ -29,14 +29,14 @@ describe("CoursesCardListComponent", () => {
 
   it("should create the component", () => {
     expect(component).toBeTruthy();
-    console.log("something here");
+    // console.log("something here");
   });
 
   it("should display the course list", () => {
     component.courses = setupCourses();
     fixture.detectChanges();
 
-    console.log(">>> " + el.nativeElement.outerHTML);
+    // console.log(">>> " + el.nativeElement.outerHTML);
 
     const cards = el.queryAll(By.css(".course-card"));
 
