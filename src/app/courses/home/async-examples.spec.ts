@@ -4,7 +4,7 @@
 // So this is just an example test suite that is not linked to any particular
 // angular components.
 
-import { fakeAsync, tick } from "@angular/core/testing";
+import { fakeAsync, flush, tick } from "@angular/core/testing";
 
 describe("Async Testing Examples", () => {
   it("Asynchronous test example with Jasmine done()", (done: DoneFn) => {
@@ -28,7 +28,7 @@ describe("Async Testing Examples", () => {
       console.log("running assertions setTimeout()");
       test = true;
     }, 1000);
-    tick(1000);
+    flush();
 
     expect(test).toBeTruthy();
   }));
