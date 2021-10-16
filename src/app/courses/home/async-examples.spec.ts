@@ -4,7 +4,7 @@
 // So this is just an example test suite that is not linked to any particular
 // angular components.
 
-import { fakeAsync, flush, tick } from "@angular/core/testing";
+import { fakeAsync, flush, flushMicrotasks, tick } from "@angular/core/testing";
 
 describe("Async Testing Examples", () => {
   it("Asynchronous test example with Jasmine done()", (done: DoneFn) => {
@@ -29,6 +29,28 @@ describe("Async Testing Examples", () => {
       test = true;
     }, 1000);
     flush();
+
+    expect(test).toBeTruthy();
+  }));
+
+  it("Asynchronous test example - plain Promise", fakeAsync(() => {
+    let test = false;
+
+    console.log("Creating promise");
+
+    Promise.resolve()
+      .then(() => {
+        console.log("Promise first then() evaluated successfully");
+        return Promise.resolve();
+      })
+      .then(() => {
+        console.log("Promise second then() evaluated successfully");
+        test = true;
+      });
+
+    flushMicrotasks();
+
+    console.log("Running test assertions");
 
     expect(test).toBeTruthy();
   }));
